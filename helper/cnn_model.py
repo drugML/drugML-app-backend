@@ -1,4 +1,6 @@
-from tensorflow.keras.models import load_model
+import os
+from tensorflow.keras.models import load_model\
+
 
 
 def classifier_engine(drug_properties, indication):
@@ -11,8 +13,8 @@ def classifier_engine(drug_properties, indication):
     Returns:
         bool: True if drug is predicted for indication, otherwise False
     """
-
-    model = load_model("../resources/best-02.model")
+    path = os.path.join(os.getcwd(), 'resources', 'best-02.model')
+    model = load_model(path)
     prediction = model.predict(drug_properties)
     if prediction >= 0.5:
         return True
