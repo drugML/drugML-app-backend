@@ -10,6 +10,9 @@ application = Flask(__name__)
 api_blueprint = Blueprint('api', __name__, url_prefix='/api')
 api = Api(api_blueprint, title='Drug Classifier API', doc='/swagger')
 
+""" 
+Namespace registering
+"""
 api.add_namespace(drug_ns)
 
 application.register_blueprint(api_blueprint)
