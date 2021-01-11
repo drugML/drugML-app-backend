@@ -1,11 +1,20 @@
-def classifier_engine(drug_name, disease):
+from tensorflow.keras.models import load_model
+
+
+def classifier_engine(drug_properties, indication):
     """[summary]
 
     Args:
-        drug_name ([type]): [description]
-        disease ([type]): [description]
+        drug_properties (list): list of drug properties
+        indication (string): not currently used
 
     Returns:
-        [type]: [description]
+        bool: True if drug is predicted for indication, otherwise False
     """
-    return True
+
+    model = load_model("../resources/best-02.model")
+    prediction = model.predict(drug_properties)
+    if prediction >= 0.5:
+        return True
+    else:
+        return False
