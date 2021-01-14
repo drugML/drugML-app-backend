@@ -40,7 +40,7 @@ else:
 
 @application.route('/')
 def index():
-    return 'Hellow World!'
+    return 'Hello World!'
 
 
 # run the app.
