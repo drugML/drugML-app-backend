@@ -15,7 +15,7 @@ DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 CERTBOT_NAME='bort'
 CERTBOT_EMAIL='pharmashawarma@gmail.com'
 # Multiple domain example: CERTBOT_DOMAINS='bort.com,www.bort.com,bort-env.eba-2kg3gsq2.us-east-2.elasticbeanstalk.com'
-CERTBOT_DOMAINS='drugml.xyz'
+CERTBOT_DOMAINS='drugml.xyz,www.drugml.xyz,drugmlapi-env.eba-f7kpi2dc.us-east-1.elasticbeanstalk.com/'
 
 LOG_PATH=$(find /var/log/ -type f -iname 'eb-hooks.log')
 log_level() {
