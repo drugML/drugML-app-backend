@@ -1,3 +1,4 @@
+from flask_cors import cross_origin
 from flask_restplus import Resource, reqparse, Namespace
 from helper.cnn_model import classifier_engine
 
@@ -80,6 +81,7 @@ _drug_parser.add_argument(
 
 
 @drug_ns.route('/')
+@cross_origin()
 class Drug(Resource):
     """
     API Resource for drug classifier prediction

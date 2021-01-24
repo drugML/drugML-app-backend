@@ -3,10 +3,13 @@ import logging
 
 from flask import Flask, jsonify, Blueprint
 from flask_restplus import Api
+from flask_cors import CORS
 
 from resources.drug import drug_ns
 
 application = Flask(__name__)
+cors = CORS(application)
+application.config['CORS_HEADERS'] = 'Content-Type'
 api_blueprint = Blueprint('api', __name__, url_prefix='/api')
 api = Api(api_blueprint, title='Drug Classifier API', doc='/swagger')
 
