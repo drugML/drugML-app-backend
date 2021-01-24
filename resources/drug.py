@@ -81,7 +81,6 @@ _drug_parser.add_argument(
 
 
 @drug_ns.route('/')
-@cross_origin()
 class Drug(Resource):
     """
     API Resource for drug classifier prediction
@@ -108,6 +107,7 @@ class Drug(Resource):
             "logp": {'in': 'formData', 'required': True}
         }
     )
+    @cross_origin()
     def post(self):
         data = _drug_parser.parse_args()
         drug_prop = []
