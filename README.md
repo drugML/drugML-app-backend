@@ -6,7 +6,12 @@ Backend Flask server for the drugML project. Currently hosted on AWS: https://dr
 
 The directories .ebextensions and .platform provide HTTPS security for AWS Elastic Beanstalk Single Instance NGINX webservers. They are platform agnostic and can be cut and pasted.
 
-.platform/hooks/postdeploy/00_ssl_setup_certbot.sh requires the following content to be edited.
+Sources found here: 
+
+ - https://github.com/HausCloud/AWS-EB-SSL
+ - https://gist.github.com/tony-gutierrez/198988c34e020af0192bab543d35a62a
+
+The following lines in **.platform/hooks/postdeploy/00_ssl_setup_certbot.sh** should be edited
 
 ```
 # IMPORTANT: no whitespaces in CERTBOT_NAME, otherwise following error: "invalid number of arguments in "ssl_certificate" directive in /etc/nginx/nginx.conf:81"
