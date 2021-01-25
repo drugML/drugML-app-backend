@@ -8,8 +8,11 @@ from flask_cors import CORS
 from resources.drug import drug_ns
 
 application = Flask(__name__)
+
+# set up CORS compliant server responses - https://stackoverflow.com/questions/25594893/how-to-enable-cors-in-flask
 cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
+
 api_blueprint = Blueprint('api', __name__, url_prefix='/api')
 api = Api(api_blueprint, title='Drug Classifier API', doc='/swagger')
 
