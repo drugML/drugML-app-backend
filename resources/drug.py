@@ -112,7 +112,7 @@ class Drug(Resource):
         print(prediction)
 
         return {'message': {
-            'prediction-diabetes': str(prediction[0][0]),
-            'prediction-hypertension': str(prediction[0][1]),
-            'prediction-pain': str(prediction[0][2])
+            'prediction_diabetes': str(prediction[0][0]),
+            'prediction_hypertension': str(prediction[0][1]),
+            'prediction_pain': str(prediction[0][2])
         }}, 200
