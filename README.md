@@ -18,9 +18,10 @@ The following lines in **.platform/hooks/postdeploy/00_ssl_setup_certbot.sh** sh
 CERTBOT_NAME='<bot_name>' # can be anything
 CERTBOT_EMAIL='<email>' # can be anything
 # Multiple domain example: CERTBOT_DOMAINS='bort.com,www.bort.com,bort-env.eba-2kg3gsq2.us-east-2.elasticbeanstalk.com'
-CERTBOT_DOMAINS='<comma-separated domains> ' # list any domains, subdomains, elastic-beanstalk domains that should have certificates
+CERTBOT_DOMAINS='<comma-separated domains> ' # list any domains, subdomains, elastic-beanstalk domains that should have certificates.
 ```
 
+Note: Non-Elastic Beanstalk domains may not be needed, but not sure.
 ## Dependancies
 
 Can be found in requirements.txt
