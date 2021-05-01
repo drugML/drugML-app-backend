@@ -2,6 +2,24 @@
 
 Backend Flask server for the drugML project. Currently hosted on AWS: https://drugmlapi-env.eba-f7kpi2dc.us-east-1.elasticbeanstalk.com/api/swagger
 
+## Quick Start
+
+In the drugML-app-backend folder:
+
+Create virtual environment
+
+Activate virtual environment
+ - ```pip install -r requirements.txt```
+
+Then, start the application with the following:
+
+**Linux**
+ - Run start bash file ```./start.sh```
+
+**Windows**
+ - Set ```FLASK_APP``` environment variable ```set FLASK_APP=application```
+ - Set ```FLASK_ENV``` environment variable ```set FLASK_ENV=development```
+ - Start flask application ```flask run```
 ## TLS Encryption
 
 The directories .ebextensions and .platform provide HTTPS security for AWS Elastic Beanstalk Single Instance NGINX webservers. They are platform agnostic and can be cut and pasted.
@@ -24,4 +42,6 @@ CERTBOT_DOMAINS='<comma-separated domains> ' # list any domains, subdomains, ela
 Note: Non-Elastic Beanstalk domains may not be needed, but not sure.
 ## Dependancies
 
-Can be found in requirements.txt
+```Python 3.6``` - ```Python 3.8```
+
+Python module dependencies be found in ```requirements.txt```
