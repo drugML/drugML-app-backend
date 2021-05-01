@@ -30,7 +30,7 @@ _drug_parser.add_argument(
     help="This field cannot be blank."
 )
 _drug_parser.add_argument(
-    'typological_polar_surface_area',
+    'topological_polar_surface_area',
     type=float,
     required=True,
     location=['form', 'json'],
@@ -38,13 +38,6 @@ _drug_parser.add_argument(
 )
 _drug_parser.add_argument(
     'heavy_atom_count',
-    type=int,
-    required=True,
-    location=['form', 'json'],
-    help="This field cannot be blank."
-)
-_drug_parser.add_argument(
-    'formal_charge',
     type=int,
     required=True,
     location=['form', 'json'],
@@ -98,9 +91,8 @@ class Drug(Resource):
             "molecular_weight": {'in': 'formData', 'required': True},
             "hydrogen_bond_donor_count": {'in': 'formData', 'required': True},
             "hydrogen_bond_acceptor_count": {'in': 'formData', 'required': True},
-            "typological_polar_surface_area": {'in': 'formData', 'required': True},
+            "topological_polar_surface_area": {'in': 'formData', 'required': True},
             "heavy_atom_count": {'in': 'formData', 'required': True},
-            "formal_charge": {'in': 'formData', 'required': True},
             "complexity": {'in': 'formData', 'required': True},
             "melting_point": {'in': 'formData', 'required': True},
             "solubility": {'in': 'formData', 'required': True},
@@ -116,8 +108,11 @@ class Drug(Resource):
 
         drug_prop = np_array([drug_prop])
 
-        is_predicted = classifier_engine(drug_prop, 'hypertension')
+        prediction = classifier_engine(drug_prop, 'hypertension')
+        print(prediction)
 
         return {'message': {
-            'prediction': is_predicted
+            'prediction-diabetes': str(prediction[0][0]),
+            'prediction-hypertension': str(prediction[0][1]),
+            'prediction-pain': str(prediction[0][2])
         }}, 200

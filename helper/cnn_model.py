@@ -13,10 +13,12 @@ def classifier_engine(drug_properties, indication):
     Returns:
         bool: True if drug is predicted for indication, otherwise False
     """
-    path = os.path.join(os.getcwd(), 'resources', 'best-02.model')
+    path = os.path.join(os.getcwd(), 'resources', 'multiclass.model')
     model = load_model(path)
     prediction = model.predict(drug_properties)
-    if prediction >= 0.5:
-        return True
-    else:
-        return False
+    print(prediction)
+    return prediction
+    # if prediction >= 0.5:
+    #     return True
+    # else:
+    #     return False
