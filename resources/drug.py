@@ -72,6 +72,37 @@ _drug_parser.add_argument(
     help="This field cannot be blank."
 )
 
+_molecule_name_parser = reqparse.RequestParser()
+_molecule_name_parser.add_argument(
+    'molecule_name',
+    required=True,
+    location=['form', 'json'],
+    help="This field cannot be blank."
+)
+
+# Adds molecule to database
+@drug_ns.route('/database/add')
+class Add(Resource):
+    def get(self):
+        data = _molecule_name_parser.parse_args()
+        print(data)
+        return {'message': 'Successful'}, 200
+
+    @drug_ns.doc(
+        responses={
+            200: "Successful",
+            400: "Unsuccessful",
+        },
+        params={
+            "molecule_name": {'in': 'formData', 'required': True}
+        }
+    )
+    @cross_origin()
+    def post(self):
+        data = _molecule_name_parser.parse_args()
+        print(data)
+        return {'message': 'Successful'}, 200
+
 
 @drug_ns.route('/')
 class Drug(Resource):
