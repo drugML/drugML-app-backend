@@ -7,11 +7,11 @@ from flask_cors import CORS
 
 from resources.drug import drug_ns
 
-application = Flask(__name__)
+app = Flask(__name__)
 
 # set up CORS compliant server responses - https://stackoverflow.com/questions/25594893/how-to-enable-cors-in-flask
-cors = CORS(application)
-application.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 api_blueprint = Blueprint('api', __name__, url_prefix='/api')
 api = Api(api_blueprint, title='Drug Classifier API', doc='/swagger')
@@ -21,7 +21,7 @@ Namespace registering
 """
 api.add_namespace(drug_ns)
 
-application.register_blueprint(api_blueprint)
+app.register_blueprint(api_blueprint)
 
 """
 Custom logger configuration
@@ -36,7 +36,7 @@ logger.addHandler(log_handler)
 
 
 # determine local or production db
-if application.env == "production":
+if app.env == "production":
     # if in production env
     logger.warning('Cloud Database Connected')
 else:
@@ -44,11 +44,11 @@ else:
     logger.warning('Local Database Connected')
 
 
-@application.route('/')
+@app.route('/')
 def index():
     return 'Hello World!'
 
 
 # run the app.
 if __name__ == "__main__":
-    application.run()
+    app.run()
