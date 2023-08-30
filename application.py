@@ -46,7 +46,7 @@ else:
 
 @app.route('/')
 def index():
-    return 'Hello World!'
+    return 'drugml-app-backend'
 
 
 # run the app.
