@@ -1,15 +1,14 @@
 # drugml-app-backend
 
-Backend Flask server for the drugML project. Currently hosted on AWS: https://drugmlapi-env.eba-f7kpi2dc.us-east-1.elasticbeanstalk.com/api/swagger
+Backend Flask server for the drugML project. Currently hosted on Azure: [https://drugml-backend.azurewebsites.net/](https://drugml-backend.azurewebsites.net/)
 
 ## Quick Start
 
 In the drugML-app-backend folder:
 
-Create virtual environment
-
-Activate virtual environment
- - ```pip install -r requirements.txt```
+ - Create virtual environment
+ - Activate virtual environment
+ - Install python packages with ```pip install -r requirements.txt```
 
 Then, start the application with the following:
 
@@ -20,6 +19,10 @@ Then, start the application with the following:
  - Set ```FLASK_APP``` environment variable ```set FLASK_APP=application```
  - Set ```FLASK_ENV``` environment variable ```set FLASK_ENV=development```
  - Start flask application ```flask run```
+
+# Deprecated
+The following was used when this project was hosted on AWS.
+
 ## TLS Encryption
 
 The directories .ebextensions and .platform provide HTTPS security for AWS Elastic Beanstalk Single Instance NGINX webservers. They are platform agnostic and can be cut and pasted.
